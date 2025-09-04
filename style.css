@@ -1,0 +1,71 @@
+:root{
+  --accent:#673ab7;
+  --accent-2:#5e35b1;
+  --bg:#f6f6fb;
+  --card:#ffffff;
+  --text:#1f1f1f;
+  --muted:#6b7280;
+  --ok:#16a34a;
+  --bad:#dc2626;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+header{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  padding:42px 16px 64px; color:#fff; text-align:center;
+}
+header h1{margin:0 0 6px;font-size:28px;font-weight:800}
+header p{margin:0;opacity:.92}
+main{max-width:940px;margin:-48px auto 80px;padding:0 16px}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 10px 30px rgba(23,23,23,0.12);
+  padding:22px 20px;
+  margin:0 auto 18px;
+}
+.card h2{font-size:18px;margin:0 0 12px}
+.q-meta{font-size:12px;color:var(--muted);margin-bottom:10px}
+label.option{
+  display:flex; gap:10px; align-items:flex-start; padding:10px 12px;
+  border-radius:12px; cursor:pointer; transition:background .15s ease;
+}
+label.option:hover{background:#f3f2fb}
+.option input{margin-top:3px}
+.short-text, select.short-text{
+  width:100%; padding:12px 14px; border-radius:12px; border:1px solid #d1d5db; outline:0;
+  background:#fff;
+}
+.short-text:focus, select.short-text:focus{border-color:var(--accent); box-shadow:0 0 0 3px #e9e1ff}
+.controls{
+  display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; padding:16px 0 0;
+}
+button{
+  border:0; border-radius:999px; padding:12px 18px; font-weight:700; cursor:pointer;
+}
+.btn-primary{background:var(--accent); color:#fff}
+.btn-secondary{background:#ede9fe; color:var(--accent)}
+.btn-link{background:transparent; color:#6b7280; font-weight:600}
+.score{display:flex; align-items:center; gap:10px; font-weight:800;color:#111827; font-size:18px;}
+.badge{font-size:12px; padding:3px 8px; border-radius:999px; font-weight:700}
+.badge.ok{background:#dcfce7; color:var(--ok)}
+.badge.bad{background:#fee2e2; color:var(--bad)}
+.feedback{margin-top:10px; padding:12px; border-radius:12px; background:#f9fafb; color:#374151; border:1px dashed #e5e7eb;}
+.feedback.correct{border-color:#bbf7d0; background:#f0fdf4}
+.feedback.wrong{border-color:#fecaca; background:#fef2f2}
+.small{font-size:12px;color:var(--muted)}
+.divider{height:1px;background:#eee;margin:12px 0}
+.is-correct{outline:2px solid #16a34a33}
+.is-wrong{outline:2px solid #dc262633}
+
+/* Form de nova questão */
+.fq-opcao{
+  display:flex; gap:10px; align-items:center; margin:6px 0;
+}
+.fq-opcao input[type="text"]{
+  flex:1; padding:10px 12px; border-radius:10px; border:1px solid #d1d5db; outline:0;
+}
+.fq-remove{
+  background:transparent; border:1px solid #e5e7eb; border-radius:10px; padding:8px 10px; cursor:pointer;
+}

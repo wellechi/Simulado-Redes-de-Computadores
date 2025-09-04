@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz — Estilo Google Forms</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Questionário</h1>
+    <p>Responda às questões e clique em <strong>Corrigir</strong> ao final.</p>
+  </header>
+
+  <main id="app">
+    <!-- Score -->
+    <section class="card" id="scoreCard" style="display:none">
+      <div class="score" id="scoreLine"></div>
+      <div class="small" id="scoreExtra" style="margin-top:6px"></div>
+      <div class="controls">
+        <button class="btn-secondary" id="btnRevisar">Revisar respostas</button>
+        <button class="btn-link" id="btnRefazer">Refazer</button>
+      </div>
+    </section>
+
+    <!-- Perguntas renderizadas via JS -->
+    <div id="questions"></div>
+
+    <!-- Criar nova questão -->
+    <section class="card" id="newQuestionCard">
+      <h2>Adicionar nova questão</h2>
+      <div class="controls" style="justify-content:flex-start; padding-top:0">
+        <button class="btn-secondary" id="btnToggleForm" type="button">Nova questão</button>
+      </div>
+
+      <form id="newQuestionForm" style="display:none; margin-top:12px">
+        <div style="display:grid; gap:10px; grid-template-columns:1fr">
+          <label class="small">Enunciado
+            <input type="text" id="fq-enunciado" class="short-text" placeholder="Digite o enunciado da questão" required>
+          </label>
+
+          <label class="small">Tipo de questão
+            <select id="fq-tipo" class="short-text">
+              <option value="unica">Múltipla escolha (uma correta)</option>
+              <option value="boolean">Verdadeiro ou Falso</option>
+            </select>
+          </label>
+
+          <div id="fq-mc-area">
+            <div class="small" style="margin:6px 0 4px">Alternativas (marque a correta)</div>
+            <div id="fq-opcoes"></div>
+            <div class="controls" style="justify-content:flex-start">
+              <button type="button" class="btn-link" id="fq-add-opcao">+ adicionar alternativa</button>
+            </div>
+          </div>
+
+          <div id="fq-bool-area" style="display:none">
+            <label class="small">Resposta correta (V/F)
+              <select id="fq-bool-correta" class="short-text">
+                <option value="0">Verdadeiro</option>
+                <option value="1">Falso</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="small" style="display:flex; align-items:center; gap:8px">
+            <input type="checkbox" id="fq-obrigatoria" checked>
+            Obrigatória
+          </label>
+
+          <label class="small">Explicação/feedback (opcional)
+            <input type="text" id="fq-explicacao" class="short-text" placeholder="Texto exibido após correção">
+          </label>
+
+          <div class="controls" style="justify-content:flex-end">
+            <button type="button" class="btn-link" id="fq-cancelar">Cancelar</button>
+            <button type="submit" class="btn-primary">Adicionar questão</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Ações -->
+    <section class="card" id="actionsCard">
+      <div class="controls">
+        <button class="btn-link" id="btnSalvar" type="button">Salvar rascunho</button>
+        <button class="btn-primary" id="btnCorrigir" type="button">Corrigir</button>
+      </div>
+      <div class="small">Nada é enviado. Toda a correção acontece no seu navegador.</div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
